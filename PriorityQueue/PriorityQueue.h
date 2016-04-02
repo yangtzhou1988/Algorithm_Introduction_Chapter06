@@ -68,6 +68,28 @@ public:
 		data[i] = key;
 	}
 
+	void erase(int i) {
+		int n = data.size();
+
+		if (i < 0) throw underflow_error("");
+		else if (i >= n) throw overflow_error("");
+
+		if (i == n-1)
+			data.pop_back();
+		else {
+			if (data[n-1] <= data[i]) {
+				data[i] = data[n-1];
+				data.pop_back();
+				max_heapify(i);
+			}
+			else {
+				T last = data[n-1];
+				data.pop_back();
+				increase_key(i, last);
+			}
+		}
+	}
+
 private:
 	vector<T> data;
 

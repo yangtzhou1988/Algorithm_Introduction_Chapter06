@@ -16,6 +16,9 @@ int main()
 	mh.insert(6);
 	mh.insert(7);
 
+	mh.erase(3);
+	//mh.erase(1);
+
 	mh.increase_key(6, 10);
 
 	int m = mh.extract_max();
